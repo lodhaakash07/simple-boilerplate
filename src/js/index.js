@@ -1,24 +1,25 @@
-// Example of DOM Manipulation with Pure JavaScript
-
-const changeSubtextBackground = () => {
-  // document.querySelector() selects an HTML element from the page by its attribute
-    // ids are selected with the '#' preceeding the ID name
-
-  // here we are selecting the <p id='subtext'></p> tag in our index.html
-  const subtext = document.querySelector('#subtext');
-  // this sets the 'style' attribute of the HTML element we selected
-  // the same as writing <p id='subtext' style="background-color: blue;"></p> in HTML
-  subtext.setAttribute('style', "background-color: blue" );
+var settings = {
+  'cache': false,
+  "async": false,
+  "crossDomain": true,
+  "url": "https://www1.nseindia.com/live_market/dynaContent/live_watch/fomktwtch_OPTSTK.htm",
+  "method": "GET",
+  "headers": {
+      "accept": "application/json",
+      "Access-Control-Allow-Origin":"*"
+  }
 }
 
-// calling a function from other.js
-// remember to import it into index.html and in the correct order of what is initiated
-exampleJavaScriptFn();
-
-
-// now we call the function defined above
-// it will select the HTML element with id='subtext'
-// then it will color its background blue
-changeSubtextBackground();
-
-
+$.ajax(settings)
+  .done(function (response) {
+    
+    try {
+      
+      console.log(response)
+    } catch(e) {
+      
+    }
+  })
+  .fail(function(jqXHR, exception) {
+    
+  });
